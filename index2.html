@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <!-- Extra -->
+    <div>
+        <div onclick="console.log('first div')">
+            <div onclick="console.log('second div')">
+                <button onclick="console.log('button')">
+                    Click! </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- output - button , second div, first div -->
+
+
+    <script>
+        // 1
+        // function fruit() {
+        //     console.log(name); // undefined
+        //     console.log(price);  //reference error can not access 'price' before initialising.
+
+        //     var name = "apple";
+        //     let price = 50;
+        // }
+        // fruit();
+
+        // 2
+        for (var i = 0; i < 3; i++) {
+            setTimeout(() => console.log(i), 1);  // three time 3 var is global scope so 'i' value is 3
+        }
+
+        // 3
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => console.log(i), 1);  // 0, 1, 2  let is block level scope
+        }
+
+        // 4
+        console.warn(+true);  // 1  boolean value is string and number
+        console.warn(typeof +true); // number
+
+        // 5
+        console.warn(!"anil");  // false because is a string.
+        console.warn(typeof ("anil"));  // string
+
+        // 6
+        let data = "size";
+        const bird = {
+            size: "small",
+        };
+        console.warn(bird[data]);     // small
+        console.warn(bird["size"]);  // small
+        console.warn(bird.size);     // small
+        console.warn(bird.data);     // undefined  variable is do not access a '.'
+
+        // 7
+        let c = { name: "peter" };
+        let d;
+
+        d = c;
+        c.name = "anil";
+        console.log(d.name);   // anil some memory reference to object.
+
+        // 8
+        var x;
+        var x = 10;
+        console.log(x); // 10 veriable is global scope to declare again and again.
+
+        // 9
+        var x;
+        // let x = 10;
+        console.log(x);  //syntax error 'x' has alreday declared.
+
+        // 10
+        let a = 3;
+        let b = new Number(3);
+
+        console.log(a == b);  // true - value as some
+        console.log(a === b);  // false - but data type are different. this is object.
+
+        // 11
+        let name;
+        nmae = {};  // Typo!
+        console.log(name);  // undefined - that is different veriable.
+
+        // 12
+        function fruit() {
+            console.log("Woof!");  // Woof! 
+        }
+        fruit.name = "apple";    // extra key in function extra key not effect to function its work.
+        fruit();
+
+        // 13
+        function sum(a, b) {
+            return a + b;
+        }
+        console.warn(sum(1, "2")); // 12 - number and string that concat 
+
+        // 14
+        let number = 0;
+        console.log(number++);  // 0 - before printing after adding 1
+        console.log(++number);  // 2 - adding 1 plus increment 1 = 2
+        console.log(number);  // 2 - increminting is '2' the number is '2'
+
+        // 15
+        function getAge(...args) {
+            console.log(typeof args);   // Object - js is nothing but array its only object.
+        }
+
+        getAge(21);
+
+        // 16
+        function getAge1() {
+            // 'use strict';
+            age = 21;
+            console.log(age);  // Refeence error - age is not defined because 'use strict' is use
+        }
+        getAge1();
+
+        // 17
+        const sum1 = eval('10*10+5');
+        console.warn(sum1);  // 105 - eval function is perfrom any parameter
+
+        // 18
+        // ** How long is cool_secret accessible ?
+        sessionStorage.setItem('cool_secret', 123);  // sessionStorage will be automatically removed the close the browser. but that will accesseble in 30 days.
+
+        // 19
+        const obj = { 1: "a", 2: "b", 3: "c" };
+        console.log(obj.hasOwnProperty("1"));   // true
+        console.log(obj.hasOwnProperty(1));     // true
+
+        // 20
+        const obj1 = { a: "one", b: "two", a: "repeat" };
+        console.log(obj1);  // a: 'repeat', b: 'two' the override the a property is pickup the next value but position of that key will be the some.
+
+        // 21
+        for (let i = 1; i < 5; i++) {
+            if (i === 3) continue;
+            console.log(i); //  1, 2, 4 -
+        }
+
+        // 22
+        const foo = () => console.log('first');
+        const bar = () => setTimeout(() => console.log('second'));
+        const baz = () => console.log('third');
+
+        bar();
+        foo();
+        baz();
+        // output - first , third , second - 
+
+        // 23
+        const person = { name: "akash" };
+
+        function sayHi(age) {
+            return `${this.name} is ${age}`;
+        }
+        console.log(sayHi.call(person, 21)); // Akash is 21 
+        console.log(sayHi.bind(person, 21));  // return the function, because bind function is not again call bind() fun as some call()
+
+        // 24
+        function sayHii() {
+            return (() => 0)();
+        }
+        console.log(typeof sayHii());  // number - arrow function is immidetly call is bind() function is number.
+
+        // 25
+        function letsHi() {
+            return () => 0;
+        }
+        console.log(typeof letsHi()); // function -
+
+        // 26
+        console.log(typeof typeof 1); // as string beacuse typeof 1 - number = number converted to string.
+
+        // 27
+        const numbers = [1, 2, 3];
+        numbers[9] = 11;
+        console.log(numbers); // array length is '10' [1, 2, 3, empty × 6, 11] = 0=1, 1=2, 2=3, 9=11.
+
+        // 28
+        const numbers1 = [1, 2, 3];
+        numbers1[4] = numbers1;
+        console.log(numbers1); // array length is '5' 4 inedx show this infinite array and index 3 is 'empty'.
+
+        // 29 Everything in javascript is either a...
+        // A: primitive or onject
+        // B: function or objct
+        // C: trick question! only objets
+        // D: number or object
+
+        // 30
+        console.log(!!null); // false - Beacuse one nagetion and null is true
+        console.log(!!"");  // false - Beacuse one nagetion mark sting is true
+        console.log(!!1);  // true - 1 is possitive value and one nagetion mark is false
+
+        // 31
+        // console.warn(setInterval(() => console.log('Hi'), 1000)); return the uniqe value at 1
+        // console.warn(setInterval(() => console.log('Hi'), 1000));
+        // console.warn(setInterval(() => console.log('Hi'), 1000));
+
+        // 32
+        console.log(..."anil"); // a n i l
+
+        // 33
+        let data1 = 3 + 4 + '5';
+        console.log(data1); // 75 = 3+4=7+'5'=75
+
+        // 34
+        console.log(typeof 3 + 4 + '5'); // number45 - 3 is number.
+        console.log(typeof (3 + 4 + '5')); // string
+        console.log(typeof (3 + 4 + +'5')); // number
+
+        // 35
+        console.log(typeof []); // object
+        console.log([] == []); // false
+
+        // 36
+        let data2 = [1, 2, 3].map(num => {
+            if (typeof num === 'number') return;
+            return num * 2;
+        })
+        console.warn(data2); // 3 values are undefined  because 3 values as numric and returning empty values are undefined.
+
+        // 37
+        function getInfo(number) {
+            number.name = "Anil";
+        }
+        const person1 = { name: "Sarah" };
+
+        getInfo(person1);
+        console.log(person1); // Anil this is pass by reference 
+
+        // 38
+        function Car() {
+            this.make = 'tata';
+            return { make: "Kia" };
+        }
+        const myCar = new Car();
+        console.log(myCar.make); // Kia - this function and returing the object as same key.
+
+        // 39
+        (() => {
+            let z = (y = 10);
+        })();
+        console.log(typeof z); // undefined - let is block scope to outer function is undefined typeof.
+
+        // 40
+        (() => {
+            let p = t = 10;
+        })();
+        console.log(typeof t);  //number
+
+        // 41
+        (() => {
+            let g = 10;
+        })();
+
+        (() => {
+            let g = 10;
+        })();
+        console.log(typeof g); // undefined
+
+        // 42
+        (() => {
+            let h = v = 10;
+        })();
+
+        (() => {
+            let h = v = 20;
+        })();
+        console.log(v);  //20 v is belong globaly
+
+        // 43
+        let x1 = 100;
+        (() => {
+            var x1 = 20;
+        })();
+        console.log(x1); //100
+
+        // 44
+        console.warn(!true - true); // -1 because 0 - 1 = -1
+
+        // 45
+        console.warn(true + +"10"); // 11 because 1 + 10 = 11
+
+        
+
+
+
+    </script>
+</body>
+
+</html>

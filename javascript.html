@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>JavaScript Practics</h1>
+
+    <script>
+
+        // *JavaScript Prerequisites -
+// Basic syntax -
+// ES6+ features -
+// Arrow Function -
+// Template literals -
+// Array Methods -
+// Object Property shorthand -
+// Destructuring -
+// Rest Operator -
+// Spread operator -
+// Promises -
+// Async / Await syntax - 
+// import and export syntax - 
+
+       // <----*React.js ------->
+      // @ Basic things to learn ---->
+    // file & folder structure
+    // components
+    // jsx
+    // props
+    // state
+    // Events
+    // styling
+    // conditional Rendering
+    // @ The essential hooks to learn -
+    // useState 
+    // sueEffect
+    // useRef
+    // useContext
+    // useReducer
+    // useMemo
+    // useCallback
+
+
+
+
+
+
+
+        console.log("Hello World!");
+
+        // var a = 12;
+
+        // console.log(a);
+
+        // *Building Blocks* =>
+
+        // a = function intro() {
+        //     console.log('Hello, I Am Akash');
+        //     console.log('Welcome to Launchpad');
+        // }
+        // function newFunction(func) {
+        //     func();
+        // }
+        // newFunction(a);
+
+        function add(a, b) {
+            console.log('adding the 2 number -', a + b);
+        }
+        add(1, 2);    // 1+2=3
+        add(3, 2, 3, 4);  // 3+2=5
+        add(3);   //NaN = Not a Number
+
+        function add(a, b) {
+            console.log('adding 2 numbers -', a + b);
+            var temp = 100;
+            return temp;
+        }
+
+        var result = add(3, 4);
+        console.log(result);  // adding 2 nubers- 7 and 100
+
+        function positiveNumbersAdd(param1, param2) {
+            var a = 0, b = 0;
+
+            if (param1 > 0) {
+                a = param1;
+            }
+
+            if (param2 > 0) {
+                b = param2;
+            }
+            return a + b;
+        }
+
+        var result = positiveNumbersAdd(6, 7); // 13.
+        // var result = positiveNumbersAdd(-6, 7);     answer is 7 if param1 > 0 is false to a is 0,  0 + 7 = 7.
+        console.log(result);    // 13
+
+
+        // function countDown(a) {
+        //     if(a < 1){
+        //         return;
+        //     }
+        //     console.log(a);
+        // }
+        // countDown(a);   // did not print anything it was not print return value.
+
+        // Recursive function Call
+
+        function countDown(a) {
+            if (a < 1) {
+                return;
+            }
+            countDown(a - 1);
+            console.log(a);
+        }
+        countDown(2);  // 1 2
+
+        // *Logical - Loops and Conditional Statments* =>
+
+        // Example-1
+        function equal(param1, param2) {
+            if (param1 == param2) {
+                console.log('Equal');
+            }
+
+            if (param1 != param2) {
+                console.log('Not Equal');
+            }
+        }
+
+        equal(1, 1);   //(1, 1)= Equal, (1, 2)= Not Equal
+
+        //Example-2
+        function greaterThan(param1, param2) {
+            if (param1 > param2) {
+                console.log('true');
+            }
+
+            if (param2 > param1) {
+                console.log('false');
+            }
+        }
+        greaterThan(1, 2);   // false
+
+        //Example-3
+        function greaterThanAndEqual(param1, param2) {
+            if (param1 >= param2) {
+                console.log('true');
+            } else {
+                console.log('false');
+            }
+        }
+        greaterThanAndEqual(1, 1); // true
+
+        //Example-4
+
+        function equality(param1, param2) {
+            if (param1 > param2) {
+                console.log('greater');
+            }
+            else if (param1 == param2) {
+                console.log('equal');
+            } else {
+                console.log('smaller');
+            }
+
+        }
+        equality(1, 1);  // equal, (4, 8)= 'smaller', (8, 4)= 'greater'
+
+        //Example-5
+
+        function equalityForPositive(param1, param2) {
+            if (param1 < 0 || param2 < 0) {
+                console.log('Cannot compare negetive numbers');
+            }
+            else if (param1 > param2) {
+                console.log('greater');
+            }
+            else if (param1 == param2) {
+                console.log('equal');
+            }
+            else {
+                console.log('smaller');
+            }
+        }
+        equalityForPositive(-4, 4); // Cannot compare negetive numbers
+
+        // *Loops* => for, While
+
+        var c = 10;
+
+        // for (c = 10; c > 0;) {
+        //     console.log(c);
+        //     c = c - 1;
+        // }
+        // console.log('finished'); // 10 9 8 7 6 5 4 3 2 1  and finished.
+
+        // While
+
+        while (c > 0) {
+            console.log(c);
+            c--;
+        }
+
+        console.log('finished');  // 10 9 8 7 6 5 4 3 2 1 and finished.
+
+        // *Complex Deta Types* - Object, Arrays, Strings
+
+        //Array -
+        var arr = [5, 8, 2, 4, 3, 9, 6];
+
+        // arr[2] = 'x';     // replace the 2 in 'x'
+        console.log(arr); // array length is 0 to 7 = array start in length inedx of zero
+        console.log(arr[2]); // array is zero to 2 is '2'
+        console.log(arr.length);  // array length is '7'
+        // console.log(arr[100]); // undefined value this is array index out of the bound exception
+
+        var temp = 0;
+        for (temp = 0; temp <= arr.length - 1; temp++) {
+            console.log(arr[temp]); // that is length of array in 7 but value 7-1 as a 6 in show
+        }
+
+        var arrNum = [8, 2, 9, 4, 7, 6, 3, 1, 5];
+
+        console.log(arrNum.sort()); // sort() the array in initial
+
+        //Objects-
+        //Example-1
+        var obj = {}; // Empty Object
+        obj.age = 24;
+        obj.firstName = 'Akash';
+        obj.lastName = 'Kamble';
+        obj.areaOfSpec = 'JavaScript';
+
+        console.log(obj);
+        console.log(Object.keys(obj)); // it return as array for age, firstName, lastName, and areaOfSpec
+
+        //Example - 2
+        var obj1 = {
+            age: 24,
+            firstName: 'Akash',
+            lastName: 'Kamble',
+            some: 'thing',
+            some1: 'thing1'
+        };
+
+        var keys = Object.keys(obj1);
+
+        for (var i = 0; i < keys.length; i++) {  // iterating at array
+            var keyForIndex = keys[i];
+            console.log('keys ->', keyForIndex, ', value ->', obj1[keyForIndex]) // it shows keys and values for object.
+
+        }
+
+        //    JavaScript Coding Interview Question-
+        // How will you reverse an array? Write your own implementation-
+
+        function reverse(array) {
+            for (let i = 0; i < array.length; i++) {
+                if (i > Math.floor((array.length - 1) / 2)) {
+                    break;
+                }
+                let temp = array[i];
+                array[i] = array[array.length - 1 - i];
+                array[array.length - 1 - i] = temp;
+            }
+            return array
+        }
+        // console.log(reverse([10, 20, 30, 40, 50, 60, 70, 80, 90, 100]));
+        // document.write(reverse([588, 225, 122, 22, 235, 123, 452]));
+
+        // 1. What are the different data types present in javascript?
+        /* Premitive and Non-Premitive data types-
+        Premitive types- Primitive data types can store only a single value.
+        1) String - string represents as series of charactera and wrriten wirh quates. using single quates and double quetes.
+        Ex- var x = "Akash";  var y = 'kamble';
+
+        2) Number - it represents at number and can written with or without decimal.
+        Ex- var x = 10; var y = 8.5;
+
+        3) Boolean - it represents as logical entity and have only two values: true and false it use conditional testing.
+        Ex- var a = 2 ; var b = 5; var c = 2;  (a==b)-return false and (a==c)-return true.
+
+        4) Undifined - when a veriable is declared but not assinged. 
+        Ex- var x; var y = undefined;
+
+        5) Null - null means empty as dfined null.
+        // 5) Symbol - it used to store an anonymous and uniqe value.
+        // Ex- var symbol1 = Symbol('symbol');
+        Non-primitive types- To store multiple and complex values, non-primitive data types are used.
+         *Object - Used to store collection of data.
+        Ex-  // Collection of data in key-value pairs
+
+                var obj1 = {
+                        x:  43,
+                        y:  "Hello world!",
+                        z: function(){
+                        return this.x;
+                           }
+                        }
+      
+            // Collection of data as an ordered list
+     
+              var array1 = [5, "Hello", true, 4.1]; 
+ */
+        /* 2. Explain Hoisting in javascript.
+        javascript where all the variable and function declarations are moved on top.
+        Ex-
+             hoistedVariable = 3;
+             console.log(hoistedVariable); // outputs 3 even when the variable is declared after it is initialized	
+             var hoistedVariable;
+             */
+
+        /* 3. Why do we use the word “debugger” in javascript ?
+                 The debugger for the browser must be activated in order to debug the code.Built -in
+                 debuggers may be switched on and off, requiring the user to report faults.The
+                 remaining section of the code should stop execution before moving on to the next
+                 line while debugging.
+ 
+ */
+
+        /* 4. Difference between “ == “ and “ === “ operators.
+               Both are comparison operators. The difference between both the operators is that
+               “==” is used to compare values whereas, “ === “ is used to compare both values and
+               types.
+            Example:
+                     var x = 2;
+                     var y = "2";
+                    (x == y) // Returns true since the value of both x and y is the same
+                    (x === y) // Returns false since the typeof x is "number" and typeof y is "string"
+ */
+        /* 5. Difference between var and let keyword in javascript.
+                The keyword 'Var' has function scope. Anywhere in the function, the variable
+                specified using var is accessible but in ‘let’ the scope of a variable declared with
+                the 'let' keyword is limited to the block in which it is declared. Let's start with a Block Scope.
+*/
+        /*  6. Explain Implicit Type Coercion in javascript.
+               1) String Coercion-
+               2) Boolaen Coercion-
+               3) Logical Coercion-
+               4) Equality Coercion
+*/
+        /*  7. Is javascript a statically typed or a dynamically typed language?
+               JavaScript is a dynamically typed language. In a dynamically typed language, the
+               type of a variable is checked during run-time in contrast to a statically typed
+               language, where the type of a variable is checked during compile-time.
+*/
+        /*  8. What is NaN property in JavaScript?
+               NaN property represents the “Not-a-Number” value. It indicates a value that is not a legal number.
+               typeof of NaN will return a Number.
+*/
+        /*  9. Explain passed by value and passed by reference.
+                 In JavaScript, primitive data types are passed by value and non-primitive data
+                 types are passed by reference.              
+*/
+        /*  10. What is an Immediately Invoked Function in JavaScript?
+                 An Immediately Invoked Function ( known as IIFE and pronounced as IIFY) is a
+                 function that runs as soon as it is defined.
+                 Syntax of IIFE :
+                 (function(){
+                        // Do something;
+                           })();
+*/
+        /*  11. What do you mean by strict mode in javascript and characteristics of javascript strict-mode?                
+                Characteristics of strict mode in javascript
+                 1. Duplicate arguments are not allowed by developers.
+                 2. In strict mode, you won't be able to use the JavaScript keyword as a parameter or function name.
+                 3. The 'use strict' keyword is used to define strict mode at the start of the script.
+                  Strict mode is supported by all browsers.
+                 4. Engineers will not be allowed to create global variables in 'Strict Mode.
+*/
+        /*  12. Explain Higher Order Functions in javascript.
+                 Functions that operate on other functions, either by taking them as arguments or
+                 by returning them, are called higher-order functions.
+                 Higher-order functions are a result of functions being first-class citizens in javascript. 
+                 Examples of higher-order functions:
+                       function higherOrder(fn) {
+                                   fn();
+                                   }
+                       higherOrder(function() { console.log("Hello world") });
+*/
+        /*  13. Explain “this” keyword.
+                 The “this” keyword refers to the object that the function is a property of.
+                 The value of the “this” keyword will always depend on the object that is invoking the function.
+                 Example-
+                var obj = {
+                            name: "vivek",
+                            getName: function(){
+                            console.log(this.name);
+                          }
+                         }
+                         var getName = obj.getName;
+                         var obj2 = {name:"akshay", getName };
+                         obj2.getName();
+*/
+        /*  14. What do you mean by Self Invoking Functions?
+                 Without being requested, a self-invoking expression is automatically invoked
+                 (initiated). If a function expression is followed by (), it will execute automatically. A
+                 function declaration cannot be invoked by itself
+*/
+        /*  15. Explain call(), apply() and, bind() methods.
+                 1. call():
+                          It’s a predefined method in javascript.
+                          This method invokes a method (function) by specifying the owner object.
+                 Example 1:   
+                          function sayHello(){
+                                     return "Hello " + this.name;
+                                             }
+                            var obj = {name: "Sandy"}; 
+                          sayHello.call(obj);
+                          // Returns "Hello Sandy"
+                 
+                 2. apply():
+                          The apply method is similar to the call() method. The only difference is that,
+                          call() method takes arguments separately whereas, apply() method takes arguments as an array.         
+                 Example :
+                          function saySomething(message){
+
+                                                         return this.name + " is " + message;
+                            
+                                                        }
+                                                        var person4 = {name: "John"};
+                                                        saySomething.apply(person4, ["awesome"]);
+
+                 3. bind():
+                           This method returns a new function, where the value of “this” keyword will be bound to
+                            the owner object, which is provided as a parameter.
+                            Example with arguments:
+                var bikeDetails = {
+                    displayDetails: function(registrationNumber,brandName){
+                    return this.name+ " , "+ "bike details: "+ registrationNumber + " , " + brandName;
+                  }
+                }
+                   
+                var person1 = {name:  "Vivek"};
+                     
+                var detailsOfPerson1 = bikeDetails.displayDetails.bind(person1, "TS0122", "Bullet");
+                      
+                // Binds the displayDetails function to the person1 object
+                        
+                      
+                detailsOfPerson1();
+                // Returns Vivek, bike details: TS0452, Thunderbird
+
+*/
+        /*  16. What is the use of promises in javascript?
+                 Promises are used to handle asynchronous operations in javascript.
+                 *Promises are used to handle asynchronous operations like server requests, for
+                   ease of understanding, we are using an operation to calculate the sum of three elements.
+                   (A promise is created using the Promise constructor which takes in a callback
+                   function with two parameters, resolve and reject respectively.)
+                   "Promise object has four states" -
+                 Pending - Initial state of promise. This state represents that the promise has
+                            neither been fulfilled nor been rejected, it is in the pending state.
+                 Fulfilled - This state represents that the promise has been fulfilled, meaning the async operation is completed.
+                 Rejected - This state represents that the promise has been rejected for some 
+                            reason, meaning the async operation has failed.
+                 Settled - This state represents that the promise has been either rejected or fulfilled. */
+        //  Example- 
+        /* function sumOfThreeElements(...elements){
+                          return new Promise((resolve,reject)=>{
+                          if(elements.length > 3 ){
+                                reject("Only three elements or less are allowed");
+                                }
+                           else{
+                         let sum = 0;
+                         let i = 0;
+                         while(i < elements.length){
+                       sum += elements[i];
+                       i++;
+                     }
+                     resolve("Sum has been calculated: "+sum);
+                    }
+                 })
+             }
+             sumOfThreeElements(4, 5, 6)
+             .then(result=> console.log(result))
+             .catch(error=> console.log(error)); */
+        // In the code above, the promise is fulfilled so the then() method gets executed
+
+        //  .then() method is used to access the result when the promise is fulfilled.
+        //  .catch() method is used to access the result/error when the promise is rejected.
+
+        /*  17. What is the rest parameter and spread operator?
+                 Rest parameter-
+                 -Rest parameter is used in function declaration.
+                 -Rest parameter is used to take a variable number of arguments and turns them into an array.
+                  Example -*/ /*
+function extractingArgs(...args) {
+return args[1];
+}
+// extractingArgs(8,9,1); // Returns 9
+function addAllArgs(...args) {
+let sumOfArgs = 0;
+let i = 0;
+while (i < args.length) {
+sumOfArgs += args[i];
+i++;
+}
+return sumOfArgs;
+}
+console.log(addAllArgs(6, 5, 7, 99)) ; // Returns 117
+console.log(addAllArgs(1, 3, 4)); // Returns 8
+*/
+        /* spread operator - 
+        the spread operator is used in function calls.
+        the spread operator takes an array or an object and spreads it
+        Example- */
+        /*   function addFourNumbers(num1, num2, num3, num4) {
+               return num1 + num2 + num3 + num4;
+           }
+           let fourNumbers = [5, 6, 7, 8];
+           addFourNumbers(...fourNumbers);
+           // Spreads [5,6,7,8] as 5,6,7,8
+           let array1 = [3, 4, 5, 6];
+           let clonedArray1 = [...array1];
+           // Spreads the array into 3,4,5,6
+           console.log(clonedArray1); // Outputs [3,4,5,6]
+           let obj8 = { x: 'Hello', y: 'Bye' };
+           let clonedObj1 = { ...obj8 }; // Spreads and clones obj1
+           console.log(obj8);
+           let obj2 = { z: 'Yes', a: 'No' };
+           let mergedObj = { ...obj8, ...obj2 }; // Spreads both the objects and merges it
+           console.log(mergedObj);
+   // Outputs {x:'Hello', y:'Bye',z:'Yes',a:'No'}; */
+
+        /*  18.  What are arrow functions?
+                  Arrow functions were introduced in the ES6 version of javascript.
+                  Arrow functions can only be used as a function expression.
+                  Arrow functions are declared without the function keyword.
+                  Also, for functions having just one line of code, curly braces { } can be omitted.
+                  example -
+                              // Traditional Function Expression
+                              var add = function (a, b) {
+                                  return console.log(a + b);
+                              }
+                              add(5, 5);
+                              // Arrow Function Expression
+                              var arrowAdd = (a, b) => console.log(a + b); arrowAdd(10, 25);
+*/
+        /*  19. What do you mean by BOM?
+                  Browser Object Model is known as BOM.
+                  It allows users to interact with the browser.
+                  A browser's initial object is a window.
+                  The document, history, screen, navigator, location, and other attributes are available in the window object.
+*/
+        /*  20. What is DOM?
+                  DOM stands for Document Object Model.
+                  DOM is a programming interface for HTML and XML documents.
+                  When the browser tries to render an HTML document, it creates an object based on the HTML document called DOM.
+                  Using this DOM, we can manipulate or change various elements inside the HTML document.
+*/
+        /*  21. What is the use of a constructor function in javascript?
+                  Constructor functions are used to create objects in javascript.
+                  The name of a constructor function should always be written in Pascal Notation: 
+                  every word should start with a capital letter.
+                  Example- 
+        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        var person1 = new Person("Vivek", 76, "male");
+        console.log(person1);   // {name: 'vivek', age: 76, gender: 'male'}
+        var person2 = new Person("Courtney", 34, "female");
+        console.log(person2);   // {name: 'Courtnery', age: 34, gender: 'female'}
+*/
+        /*  22. What are callbacks?
+                  A callback is a function that will be executed aer another function gets executed. 
+                  Functions that are used as an argument to another function are called callback functions.
+                  example- 
+        function divideByHalf(sum) {
+            console.log(Math.floor(sum / 2));
+        }
+        function multiplyBy2(sum) {
+            console.log(sum * 2);
+        }
+        function operationOnSum(num1, num2, operation) {
+            var sum = num1 + num2;
+            operation(sum);
+        }
+        operationOnSum(3, 3, divideByHalf); // Outputs 3
+        operationOnSum(5, 5, multiplyBy2); // Outputs 20
+*/
+        /*  23. What are the types of errors in javascript?
+                  There are two types of errors in javascript.
+                  1. Syntax error: Syntax errors are mistakes or spelling problems in the code that
+                                   cause the program to not execute at all or to stop running halfway through.
+                  2. Logical error: Reasoning mistakes occur when the syntax is proper but the logic
+                                   or program is incorrect.                 
+
+*/
+        /*  24. What are object prototypes?
+                  A prototype is a blueprint of an object. 
+                  All javascript objects inherit properties from a prototype.
+                  Date objects - inherit properties from the Date prototype
+                  Math objects - inherit properties from the Math prototype
+                  Array objects - inherit properties from the Array prototype.
+                  On top of the chain is Object.prototype. Every prototype inherits properties and
+                  methods from the Object.prototype.
+*/
+        /*  25. Explain Closures in JavaScript.
+                  closures are ability of function that can access the var declared in outer scope. 
+                  example- 
+
+        function randomFunc() {
+            var obj1 = { name: "Vivian", age: 45 };
+            return function () {
+                console.log(obj1.name + " is " + "awesome"); // Has access to obj1 even when the ran
+            }
+        }
+        var initialiseClosure = randomFunc(); // Returns a function
+        initialiseClosure();
+*/
+        /*  26. What is currying in JavaScript?
+                 Currying is an advanced technique to transform a function of arguments n, to n
+                 functions of one or fewer arguments.
+                 example- 
+        function add(a) {
+            return function (b) {
+                return console.log(a + b);
+            }
+        }
+        add(3)(4)
+*/
+        /*  27. What is recursion in a programming language?
+                Recursion is a technique to iterate over an operation by having a function call itself
+                repeatedly until it arrives at a result.
+                example- 
+        function computeSum(arr) {
+            if (arr.length === 1) {
+                return arr[0];
+            }
+            else {
+                return  arr.pop() + computeSum(arr);
+            }
+        }
+       console.log(computeSum([7, 8, 9, 99])) ; // Returns 123
+*/
+        /*  28. What is  Async/Await usage in javaScript ?
+                 Async-await functions are executed sequentially one after another.
+                 Async/await provides a certain use case.
+                 the return value of the Async function is always an assurance or throws an error.
+*/
+        /*  29. What is Generators usage in javaScript ?
+                 Generator functions are run by their generator yield by yield which means one output at a time
+                 Generators easier to execute.
+                 The output result of the Generator function is always value: X, done: Boolean.
+                 Generator functions are declared with the function* keyword instead of the normal function keyword
+*/ 
+               
+
+    </script>
+</body>
+
+</html>
